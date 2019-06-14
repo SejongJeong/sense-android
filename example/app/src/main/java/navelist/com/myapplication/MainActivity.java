@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AudioRecord recorder;
     private final String TAG = "SenseAndroidClient";
-    private final String apiKey = "NhpsdSSq8xzs8IGcsWljVil0hdtDKmF0px4Rp5cE";
+    private final String apiKey = "<YourApiKeyHere>";
     private final SenseStreamClient csClient = new SenseStreamClient(apiKey);;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
