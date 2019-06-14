@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void stopRecording() {
         // stops the recording activity
+        csClient.end();
         if (null != recorder) {
             isRecording = false;
             recorder.stop();
