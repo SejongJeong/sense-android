@@ -1,22 +1,21 @@
 package sense.full.v1;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.Status;
-import io.grpc.stub.StreamObserver;
-import sense.full.v1.CochlearSense.Request;
-import sense.full.v1.CochlearSense.Response;
-import sense.full.v1.SenseGrpc.SenseStub;
-import sense.full.v1.SenseGrpc;
-
 import com.google.protobuf.ByteString;
 
 import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.Status;
+import io.grpc.stub.StreamObserver;
+import sense.full.v1.Sense.Request;
+import sense.full.v1.Sense.Response;
+import sense.full.v1.SenseGrpc.SenseStub;
 
-public class CochlearSenseClient {
+
+public class SenseClient {
 	private static final int blockSize = 2*1024*1024;
 	private final ManagedChannel channel;
 	private final SenseStub asyncStub;
@@ -32,7 +31,7 @@ public class CochlearSenseClient {
 		music
 	}
 	
-	public CochlearSenseClient(String apiKey) {
+	public SenseClient(String apiKey) {
 		/**
 		 * Default connection to sense.cochlear.ai:9000
 		 * To get an apikey, contact Cochlear.ai
@@ -40,7 +39,7 @@ public class CochlearSenseClient {
 		this("34.80.243.56", 50051, apiKey);
 	}
 
-	private CochlearSenseClient(String host, int port, String apiKey) {
+	private SenseClient(String host, int port, String apiKey) {
 		/**
 		 * You can designate any host and port. Probably should be blocked on release.  
 		 */
@@ -48,7 +47,7 @@ public class CochlearSenseClient {
 		this.apiKey = apiKey;
 	}
 
-	private CochlearSenseClient(ManagedChannelBuilder<?> channelBuilder) {
+	private SenseClient(ManagedChannelBuilder<?> channelBuilder) {
 		/**
 		 * GRPC default constructor. Private call only.
 		 */

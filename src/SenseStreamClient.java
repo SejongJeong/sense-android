@@ -1,30 +1,22 @@
 package sense.full.v1;
 
-import android.util.Log;
-
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.Status;
-import io.grpc.stub.StreamObserver;
-import sense.full.v1.CochlearSense.RequestStream;
-import sense.full.v1.CochlearSense.Response;
-import sense.full.v1.SenseGrpc.SenseStub;
-import sense.full.v1.SenseGrpc;
-
-import sense.full.v1.CochlearResultListener;
 import com.google.protobuf.ByteString;
-
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.Status;
+import io.grpc.stub.StreamObserver;
+import sense.full.v1.Sense.RequestStream;
+import sense.full.v1.Sense.Response;
+import sense.full.v1.SenseGrpc.SenseStub;
 
 
-
-
-public class CochlearSenseStreamClient{
+public class SenseStreamClient {
 	private static final long deadline = 10;
 	
 	ManagedChannel channel;
@@ -32,7 +24,7 @@ public class CochlearSenseStreamClient{
 	CountDownLatch finishLatch;
 	StreamObserver<RequestStream> requestObserver;
 
-	private CochlearResultListener cochlearResultListener = null;
+	private SenseResultListener senseResultListener = null;
 	
 	private String apiKey;
 	private int fs;
@@ -42,19 +34,19 @@ public class CochlearSenseStreamClient{
 	private String task;
 
 
-	public CochlearSenseStreamClient(String apiKey) {
+	public SenseStreamClient(String apiKey) {
 		this("34.80.243.56", 50051, apiKey);
 	}
-	private CochlearSenseStreamClient(String host, int port, String apiKey) {
+	private SenseStreamClient(String host, int port, String apiKey) {
 	  this(ManagedChannelBuilder.forAddress(host, port).usePlaintext());
 		this.apiKey = apiKey;
 	}
 
 	/** Construct client for accessing RouteGuide server using the existing channel. */
-	private CochlearSenseStreamClient(ManagedChannelBuilder<?> channelBuilder) {
+	private SenseStreamClient(ManagedChannelBuilder<?> channelBuilder) {
 		super();
 		channel = channelBuilder.build();
-		asyncStub = SenseGrpc.newStub(channel); 
+		asyncStub = SenseGrpc.newStub(channel);
 	}
 
 
@@ -113,7 +105,7 @@ public class CochlearSenseStreamClient{
 
 
 	public void pushByte(byte[] bytes) throws Exception{
-		if(this.cochlearResultListener==null){
+		if(this.senseResultListener ==null){
 			throw new Exception("Listener not registered.");
 		}
 		RequestStream _input = RequestStream.newBuilder()
@@ -147,7 +139,7 @@ public class CochlearSenseStreamClient{
 			public void onNext(Response out) {
 
 				//Log.d("CochlearSenseResult", out.getOutputs());
-				cochlearResultListener.onResult(out.getOutputs());
+				senseResultListener.onResult(out.getOutputs());
 
 			}
 
@@ -155,13 +147,13 @@ public class CochlearSenseStreamClient{
 			public void onError(Throwable t) {
 				Status status = Status.fromThrowable(t);
 
-				cochlearResultListener.onError("ERROR : "+status);
+				senseResultListener.onError("ERROR : "+status);
 				finishLatch.countDown();
 			}
 
 			@Override
 			public void onCompleted() {
-				cochlearResultListener.onComplete();
+				senseResultListener.onComplete();
 				finishLatch.countDown();
 
 			}
@@ -173,8 +165,8 @@ public class CochlearSenseStreamClient{
 
 	}
 
-	public void setListener(CochlearResultListener listener){
-		this.cochlearResultListener = listener;
+	public void setListener(SenseResultListener listener){
+		this.senseResultListener = listener;
 	}
 	
 }
