@@ -19,25 +19,25 @@ public final class SenseGrpc {
   public static final String SERVICE_NAME = "sense.full.v1.Sense";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<CochlearSense.Request,
-      CochlearSense.Response> getSenseMethod;
+  private static volatile io.grpc.MethodDescriptor<Sense.Request,
+      Sense.Response> getSenseMethod;
 
-  public static io.grpc.MethodDescriptor<CochlearSense.Request,
-      CochlearSense.Response> getSenseMethod() {
-    io.grpc.MethodDescriptor<CochlearSense.Request, CochlearSense.Response> getSenseMethod;
+  public static io.grpc.MethodDescriptor<Sense.Request,
+      Sense.Response> getSenseMethod() {
+    io.grpc.MethodDescriptor<Sense.Request, Sense.Response> getSenseMethod;
     if ((getSenseMethod = SenseGrpc.getSenseMethod) == null) {
       synchronized (SenseGrpc.class) {
         if ((getSenseMethod = SenseGrpc.getSenseMethod) == null) {
           SenseGrpc.getSenseMethod = getSenseMethod =
-              io.grpc.MethodDescriptor.<CochlearSense.Request, CochlearSense.Response>newBuilder()
+              io.grpc.MethodDescriptor.<Sense.Request, Sense.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "sense.full.v1.Sense", "sense"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  CochlearSense.Request.getDefaultInstance()))
+                  Sense.Request.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  CochlearSense.Response.getDefaultInstance()))
+                  Sense.Response.getDefaultInstance()))
                   .setSchemaDescriptor(new SenseMethodDescriptorSupplier("sense"))
                   .build();
           }
@@ -46,25 +46,25 @@ public final class SenseGrpc {
      return getSenseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<CochlearSense.RequestStream,
-      CochlearSense.Response> getSenseStreamMethod;
+  private static volatile io.grpc.MethodDescriptor<Sense.RequestStream,
+      Sense.Response> getSenseStreamMethod;
 
-  public static io.grpc.MethodDescriptor<CochlearSense.RequestStream,
-      CochlearSense.Response> getSenseStreamMethod() {
-    io.grpc.MethodDescriptor<CochlearSense.RequestStream, CochlearSense.Response> getSenseStreamMethod;
+  public static io.grpc.MethodDescriptor<Sense.RequestStream,
+      Sense.Response> getSenseStreamMethod() {
+    io.grpc.MethodDescriptor<Sense.RequestStream, Sense.Response> getSenseStreamMethod;
     if ((getSenseStreamMethod = SenseGrpc.getSenseStreamMethod) == null) {
       synchronized (SenseGrpc.class) {
         if ((getSenseStreamMethod = SenseGrpc.getSenseStreamMethod) == null) {
           SenseGrpc.getSenseStreamMethod = getSenseStreamMethod =
-              io.grpc.MethodDescriptor.<CochlearSense.RequestStream, CochlearSense.Response>newBuilder()
+              io.grpc.MethodDescriptor.<Sense.RequestStream, Sense.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "sense.full.v1.Sense", "sense_stream"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  CochlearSense.RequestStream.getDefaultInstance()))
+                  Sense.RequestStream.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  CochlearSense.Response.getDefaultInstance()))
+                  Sense.Response.getDefaultInstance()))
                   .setSchemaDescriptor(new SenseMethodDescriptorSupplier("sense_stream"))
                   .build();
           }
@@ -102,15 +102,15 @@ public final class SenseGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<CochlearSense.Request> sense(
-        io.grpc.stub.StreamObserver<CochlearSense.Response> responseObserver) {
+    public io.grpc.stub.StreamObserver<Sense.Request> sense(
+        io.grpc.stub.StreamObserver<Sense.Response> responseObserver) {
       return asyncUnimplementedStreamingCall(getSenseMethod(), responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<CochlearSense.RequestStream> senseStream(
-        io.grpc.stub.StreamObserver<CochlearSense.Response> responseObserver) {
+    public io.grpc.stub.StreamObserver<Sense.RequestStream> senseStream(
+        io.grpc.stub.StreamObserver<Sense.Response> responseObserver) {
       return asyncUnimplementedStreamingCall(getSenseStreamMethod(), responseObserver);
     }
 
@@ -120,15 +120,15 @@ public final class SenseGrpc {
             getSenseMethod(),
             asyncClientStreamingCall(
               new MethodHandlers<
-                CochlearSense.Request,
-                CochlearSense.Response>(
+                Sense.Request,
+                Sense.Response>(
                   this, METHODID_SENSE)))
           .addMethod(
             getSenseStreamMethod(),
             asyncBidiStreamingCall(
               new MethodHandlers<
-                CochlearSense.RequestStream,
-                CochlearSense.Response>(
+                Sense.RequestStream,
+                Sense.Response>(
                   this, METHODID_SENSE_STREAM)))
           .build();
     }
@@ -154,16 +154,16 @@ public final class SenseGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<CochlearSense.Request> sense(
-        io.grpc.stub.StreamObserver<CochlearSense.Response> responseObserver) {
+    public io.grpc.stub.StreamObserver<Sense.Request> sense(
+        io.grpc.stub.StreamObserver<Sense.Response> responseObserver) {
       return ClientCalls.asyncClientStreamingCall(
           getChannel().newCall(getSenseMethod(), getCallOptions()), responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<CochlearSense.RequestStream> senseStream(
-        io.grpc.stub.StreamObserver<CochlearSense.Response> responseObserver) {
+    public io.grpc.stub.StreamObserver<Sense.RequestStream> senseStream(
+        io.grpc.stub.StreamObserver<Sense.Response> responseObserver) {
       return ClientCalls.asyncBidiStreamingCall(
           getChannel().newCall(getSenseStreamMethod(), getCallOptions()), responseObserver);
     }
@@ -239,10 +239,10 @@ public final class SenseGrpc {
       switch (methodId) {
         case METHODID_SENSE:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.sense(
-              (io.grpc.stub.StreamObserver<CochlearSense.Response>) responseObserver);
+              (io.grpc.stub.StreamObserver<Sense.Response>) responseObserver);
         case METHODID_SENSE_STREAM:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.senseStream(
-              (io.grpc.stub.StreamObserver<CochlearSense.Response>) responseObserver);
+              (io.grpc.stub.StreamObserver<Sense.Response>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -255,7 +255,7 @@ public final class SenseGrpc {
 
     @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return CochlearSense.getDescriptor();
+      return Sense.getDescriptor();
     }
 
     @Override

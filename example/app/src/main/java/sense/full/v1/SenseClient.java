@@ -10,8 +10,8 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
-import sense.full.v1.CochlearSense.Request;
-import sense.full.v1.CochlearSense.Response;
+import sense.full.v1.Sense.Request;
+import sense.full.v1.Sense.Response;
 import sense.full.v1.SenseGrpc.SenseStub;
 
 

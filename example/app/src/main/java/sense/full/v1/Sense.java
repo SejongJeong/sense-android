@@ -3,8 +3,8 @@
 
 package sense.full.v1;
 
-public final class CochlearSense {
-  private CochlearSense() {}
+public final class Sense {
+  private Sense() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -157,12 +157,12 @@ public final class CochlearSense {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return CochlearSense.internal_static_sense_full_v1_Request_descriptor;
+      return Sense.internal_static_sense_full_v1_Request_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return CochlearSense.internal_static_sense_full_v1_Request_fieldAccessorTable
+      return Sense.internal_static_sense_full_v1_Request_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               Request.class, Builder.class);
     }
@@ -512,17 +512,17 @@ public final class CochlearSense {
         RequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return CochlearSense.internal_static_sense_full_v1_Request_descriptor;
+        return Sense.internal_static_sense_full_v1_Request_descriptor;
       }
 
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return CochlearSense.internal_static_sense_full_v1_Request_fieldAccessorTable
+        return Sense.internal_static_sense_full_v1_Request_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 Request.class, Builder.class);
       }
 
-      // Construct using sense.full.v1.CochlearSense.Request.newBuilder()
+      // Construct using sense.full.v1.Sense.Request.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -554,7 +554,7 @@ public final class CochlearSense {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return CochlearSense.internal_static_sense_full_v1_Request_descriptor;
+        return Sense.internal_static_sense_full_v1_Request_descriptor;
       }
 
       public Request getDefaultInstanceForType() {
@@ -1170,12 +1170,12 @@ public final class CochlearSense {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return CochlearSense.internal_static_sense_full_v1_RequestStream_descriptor;
+      return Sense.internal_static_sense_full_v1_RequestStream_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return CochlearSense.internal_static_sense_full_v1_RequestStream_fieldAccessorTable
+      return Sense.internal_static_sense_full_v1_RequestStream_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               RequestStream.class, Builder.class);
     }
@@ -1545,17 +1545,17 @@ public final class CochlearSense {
         RequestStreamOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return CochlearSense.internal_static_sense_full_v1_RequestStream_descriptor;
+        return Sense.internal_static_sense_full_v1_RequestStream_descriptor;
       }
 
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return CochlearSense.internal_static_sense_full_v1_RequestStream_fieldAccessorTable
+        return Sense.internal_static_sense_full_v1_RequestStream_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 RequestStream.class, Builder.class);
       }
 
-      // Construct using sense.full.v1.CochlearSense.RequestStream.newBuilder()
+      // Construct using sense.full.v1.Sense.RequestStream.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1589,7 +1589,7 @@ public final class CochlearSense {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return CochlearSense.internal_static_sense_full_v1_RequestStream_descriptor;
+        return Sense.internal_static_sense_full_v1_RequestStream_descriptor;
       }
 
       public RequestStream getDefaultInstanceForType() {
@@ -2162,12 +2162,12 @@ public final class CochlearSense {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return CochlearSense.internal_static_sense_full_v1_Response_descriptor;
+      return Sense.internal_static_sense_full_v1_Response_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return CochlearSense.internal_static_sense_full_v1_Response_fieldAccessorTable
+      return Sense.internal_static_sense_full_v1_Response_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               Response.class, Builder.class);
     }
@@ -2365,17 +2365,17 @@ public final class CochlearSense {
         ResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return CochlearSense.internal_static_sense_full_v1_Response_descriptor;
+        return Sense.internal_static_sense_full_v1_Response_descriptor;
       }
 
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return CochlearSense.internal_static_sense_full_v1_Response_fieldAccessorTable
+        return Sense.internal_static_sense_full_v1_Response_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 Response.class, Builder.class);
       }
 
-      // Construct using sense.full.v1.CochlearSense.Response.newBuilder()
+      // Construct using sense.full.v1.Sense.Response.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2399,7 +2399,7 @@ public final class CochlearSense {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return CochlearSense.internal_static_sense_full_v1_Response_descriptor;
+        return Sense.internal_static_sense_full_v1_Response_descriptor;
       }
 
       public Response getDefaultInstanceForType() {

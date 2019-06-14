@@ -13,7 +13,7 @@ import sense.full.v1.SenseResultListener;
 import sense.full.v1.SenseStreamClient;
 
 public class MainActivity extends AppCompatActivity {
-    private static String tag = "CochlearSense";
+    private static String tag = "Sense";
 
     private AudioRecord recorder;
     private final String TAG = "SenseAndroidClient";
