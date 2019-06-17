@@ -99,3 +99,87 @@ https://stackoverflow.com/questions/45650076/audioflinger-could-not-create-recor
 
 
 
+### Code Review
+
+
+```java
+private void startRecording() {
+        ...
+
+        csClient.setListener(new SenseResultListener() { // Set listener here
+            @Override
+            public void onResult(String result) {
+
+                Log.d("CochlearSenseResult", result);
+            }
+
+            @Override
+            public void onError(String error) {
+                Log.d("CochlearSenseResult", error);
+            }
+
+            @Override
+            public void onComplete() {
+                csClient.end();
+            }
+        });
+
+
+        try{
+            csClient.senseStream("event", 22050); // <-- init stream client, set task and sr (Currently it must be 22050)
+            
+        }catch(Exception e){
+        
+            Log.d(TAG, e.toString());
+            return;
+            
+        }
+
+        recorder = new AudioRecord(MediaRecorder.AudioSource.MIC,RECORDER_SAMPLERATE, RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING, BUFFER_BYTES_MINSIZE*2); // <--Audio recorder is one example of sound input
+        recorder.startRecording();
+        
+        ...
+    }
+    
+    
+    private void handleRecordData(){ // <-- This method is the place where actually puts data into the client
+    
+        float sData[] = new float[BUFFER_ARRAY_MINSIZE ];
+
+        while(isRecording){
+            recorder.read(sData, 0, BUFFER_ARRAY_MINSIZE , AudioRecord.READ_BLOCKING);
+            // Using 'AudioRecord.READ_BLOCKING' argument, you can always get the same size of data
+
+            try{
+                csClient.pushFloat32(sData); // <-- AudioRecorder.read returns float array, so use pushFloat32 method in the client
+            }
+            ...
+
+        }
+    }
+    
+```
+
+Several interfaces other than pushFloat32 is prepared
+
+```
+	public void pushShort(short[] shorts) throws Exception
+
+	public void pushFloat32(float[] floats) throws Exception
+
+	public void pushByte(byte[] bytes) throws Exception
+```
+Keep in mind that, in any of the above method, always put 0.5 second data
+
+- In case of pushShort
+  
+  short[11025] (because sr's always 22050)
+
+- In case of pushFloat32
+  
+  float[11025] (same reason)
+
+- In case of pushByte
+  
+  byte array of float32 pcm little-endian
+
