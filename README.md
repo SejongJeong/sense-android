@@ -144,7 +144,7 @@ private void startRecording() {
     
     private void handleRecordData(){ // <-- This method is the place where actually puts data into the client
     
-        float sData[] = new float[BUFFER_ARRAY_MINSIZE ];
+        float sData[] = new float[BUFFER_ARRAY_MINSIZE ]; //BUFFER_ARRAY_MINSIZE = 11025
 
         while(isRecording){
             recorder.read(sData, 0, BUFFER_ARRAY_MINSIZE , AudioRecord.READ_BLOCKING);
