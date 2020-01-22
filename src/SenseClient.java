@@ -36,7 +36,7 @@ public class SenseClient {
 		 * Default connection to sense.cochlear.ai:9000
 		 * To get an apikey, contact Cochlear.ai
 		 */
-		this("34.80.243.56", 50051, apiKey);
+		this("sense.cochlear.ai", 50051, apiKey);
 	}
 
 	private SenseClient(String host, int port, String apiKey) {

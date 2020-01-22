@@ -35,7 +35,7 @@ public class SenseStreamClient {
 
 
 	public SenseStreamClient(String apiKey) {
-		this("34.80.243.56", 50051, apiKey);
+		this("sense.cochlear.ai", 50051, apiKey);
 	}
 	private SenseStreamClient(String host, int port, String apiKey) {
 	  this(ManagedChannelBuilder.forAddress(host, port).usePlaintext());
